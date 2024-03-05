@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter the number of elements: ");
+            int n = scanner.nextInt();
+
+            if (n <= 0) {
+                System.out.println("Please provide a positive integer as input.");
+                return;
+            }
+
+            int[] numbers = new int[n];
+            System.out.println("Enter the elements:");
+            for (int i = 0; i < n; i++) {
+                numbers[i] = scanner.nextInt();
+            }
+
+            int sum = 0;
+            for (int i = 0; i <= n; i++) { // Intentional error: using i <= n
+                sum += numbers[i];
+            }
+
+            System.out.println("Sum of the numbers: " + sum);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException: Loop variable exceeded array size.");
+        } catch (Exception e) {
+            System.out.println("Invalid input.");
+        }
+    }
+}
