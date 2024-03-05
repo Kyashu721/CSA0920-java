@@ -1,0 +1,26 @@
+def binary_to_decimal(binary):
+    decimal = 0
+    power = len(binary) - 1
+    for digit in binary:
+        decimal += int(digit) * (2 ** power)
+        power -= 1
+    return decimal
+
+def decimal_to_octal(decimal):
+    octal = ""
+    while decimal > 0:
+        remainder = decimal % 8
+        octal = str(remainder) + octal
+        decimal //= 8
+    return octal
+
+# Sample Input
+binary_number = "1101"
+
+# Conversion
+decimal_number = binary_to_decimal(binary_number)
+octal_number = decimal_to_octal(decimal_number)
+
+# Output
+print("Decimal Number:", decimal_number)
+print("Octal:", octal_number)
