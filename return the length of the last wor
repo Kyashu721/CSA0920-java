@@ -1,0 +1,28 @@
+public class Main {
+    public static int lengthOfLastWord(String s) {
+        // Trim leading and trailing spaces
+        s = s.trim();
+
+        // Find the index of the last space character
+        int lastIndex = s.lastIndexOf(' ');
+
+        // Return the length of the last word
+        return s.length() - lastIndex - 1;
+    }
+
+    public static void main(String[] args) {
+        // Test cases
+        String[] testCases = {
+            "Maximal Substring Consisting",
+            "lea@st one wor2d",
+            "1254 98076",
+            "& * ( ) % # $",
+            "letters and spaces"
+        };
+
+        for (String testCase : testCases) {
+            int length = lengthOfLastWord(testCase);
+            System.out.println("Length of the last word in \"" + testCase + "\": " + length);
+        }
+    }
+}
