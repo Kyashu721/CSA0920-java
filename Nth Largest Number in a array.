@@ -1,0 +1,10 @@
+def nth_largest_number(arr, n):
+    arr.sort(reverse=True)  # Sort the array in descending order
+    return arr[n - 1]  # Return the (n-1)th index element
+
+# Sample Input
+arr = [14, 67, 48, 23, 5, 62]
+N = 4
+
+# Output
+print(f"{N}th Largest number:", nth_largest_number(arr, N))
