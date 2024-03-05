@@ -1,0 +1,14 @@
+def decimal_to_binary(decimal):
+    return bin(decimal).replace("0b", "")
+
+def decimal_to_octal(decimal):
+    return oct(decimal).replace("0o", "")
+
+if __name__ == "__main__":
+    decimal_number = int(input("Decimal Number: "))
+    
+    binary_number = decimal_to_binary(decimal_number)
+    octal_number = decimal_to_octal(decimal_number)
+    
+    print(f"Binary Number = {binary_number}")
+    print(f"Octal = {octal_number}")
