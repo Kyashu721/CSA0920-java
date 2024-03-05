@@ -1,0 +1,14 @@
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+# Input
+n = int(input("Enter the value of n: "))
+
+# Calculation
+result = factorial(n)
+
+# Output
+print("The factorial of", n, "is:", result)
