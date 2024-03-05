@@ -1,0 +1,38 @@
+class Fibonacci implements Runnable {
+    private int count;
+
+    public Fibonacci(int count) {
+        this.count = count;
+    }
+
+    @Override
+    public void run() {
+        int a = 0, b = 1;
+        System.out.print(a + " " + b + " ");
+        for (int i = 2; i < count; i++) {
+            int c = a + b;
+            System.out.print(c + " ");
+            a = b;
+            b = c;
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            int count = Integer.parseInt(args[0]);
+            if (count <= 0) {
+                System.out.println("Please provide a positive integer as input.");
+                return;
+            }
+            Thread fibonacciThread = new Thread(new Fibonacci(count));
+            fibonacciThread.start();
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please provide a valid positive integer.");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Please provide the count of Fibonacci numbers as input.");
+        }
+    }
+}
