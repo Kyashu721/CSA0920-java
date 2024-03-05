@@ -1,0 +1,22 @@
+class MultiplicationTable implements Runnable {
+    private int number;
+
+    public MultiplicationTable(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(number + " X " + i + " = " + (number * i));
+            try {
+                Thread.sleep(500); // Sleep for 500 milliseconds between each multiplication
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] a
