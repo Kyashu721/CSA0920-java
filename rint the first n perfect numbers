@@ -1,0 +1,25 @@
+def sum_of_divisors(n):
+    divisors_sum = 1  # 1 is always a divisor
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            divisors_sum += i
+            if i != n // i:  # Add the other divisor if it's not the square root
+                divisors_sum += n // i
+    return divisors_sum
+
+def is_perfect_number(num):
+    return num == sum_of_divisors(num)
+
+def first_n_perfect_numbers(n):
+    perfect_numbers = []
+    num = 2  # The first perfect number is 6
+    while len(perfect_numbers) < n:
+        if is_perfect_number(num):
+            perfect_numbers.append(num)
+        num += 1
+    return perfect_numbers
+
+if __name__ == "__main__":
+    N = int(input("N = "))
+    perfect_numbers = first_n_perfect_numbers(N)
+    print(f"First {N} perfect numbers are: {', '.join(map(str, perfect_numbers))}")
