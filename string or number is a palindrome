@@ -1,0 +1,20 @@
+from random import choice
+
+def is_palindrome(string_or_number):
+    # Convert string_or_number to string if it's not already a string
+    string_or_number = str(string_or_number)
+    # Check if the reversed string is equal to the original string
+    return string_or_number == string_or_number[::-1]
+
+if __name__ == "__main__":
+    case = int(input("Enter the case (1 for string, 2 for number): "))
+    if case == 1:
+        string = input("Enter the string: ")
+        result = "Palindrome" if is_palindrome(string) else "Not Palindrome"
+    elif case == 2:
+        number = input("Enter the number: ")
+        result = "Palindrome" if is_palindrome(number) else "Not Palindrome"
+    else:
+        result = "Invalid input"
+
+    print(result)
