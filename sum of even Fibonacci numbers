@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class EvenFibonacciSum {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number N: ");
+        int N = scanner.nextInt();
+        scanner.close();
+
+        int sum = getEvenFibonacciSum(N);
+        System.out.println("Sum of even Fibonacci numbers till " + N + " is: " + sum);
+    }
+
+    public static int getEvenFibonacciSum(int N) {
+        int sum = 0;
+        int fibPrev = 1;
+        int fibCurr = 1;
+
+        while (fibCurr <= N) {
+            if (fibCurr % 2 == 0) {
+                sum += fibCurr;
+            }
+            int fibNext = fibPrev + fibCurr;
+            fibPrev = fibCurr;
+            fibCurr = fibNext;
+        }
+
+        return sum;
+    }
+}
